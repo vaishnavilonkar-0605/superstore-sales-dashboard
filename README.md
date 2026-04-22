@@ -1,59 +1,133 @@
-🛒 Super Store Sales Dashboard
-An interactive Power BI dashboard analyzing retail sales performance across regions, categories, segments, and time periods — covering 2019–2020 sales data for a US-based superstore.
+# 🛒 Superstore Sales Dashboard (Power BI)
+
+An interactive **Power BI dashboard** designed to analyze and visualize retail sales data, helping stakeholders make **data-driven business decisions**.
+
+---
+
+## ⚡ Quick Highlights
+
+* 📊 Analyzed **5,901+ sales records**
+* 📈 Built **interactive dashboard with KPIs & filters**
+* 🔍 Identified **top-performing regions, categories & segments**
+* 💡 Delivered **actionable business insights**
+* 🛠️ Used **Power BI, DAX, Power Query**
+
+---
+
+## 💡 Why This Project?
+
+Retail businesses generate massive sales data but often struggle to extract meaningful insights.
+
+This dashboard solves that problem by:
+
+* Providing **clear KPIs**
+* Tracking **sales trends over time**
+* Highlighting **customer behavior & preferences**
+
+---
+
+## 🎯 Business Objective
+
+* Monitor **Sales, Profit, and Quantity**
+* Analyze **Year-over-Year Growth (2019 vs 2020)**
+* Identify **top-performing states and categories**
+* Understand **payment modes & shipping trends**
+
+---
+
+## 🖥️ Dashboard Preview
+
+### 📄 Sales Overview
+
+<img width="591" height="362" alt="image" src="https://github.com/user-attachments/assets/a4e0d12d-84fa-4365-b77d-057954b3ff3b" />
 
 
-🖥️ Dashboard Preview
-Page 1 — Sales Overview
-Page 2 — Sales Trend & State-wise Analysis
+### 📄 Sales Trend & State Analysis
 
-🎯 Project Objective
-This project aims to help retail business stakeholders:
-
-Monitor overall sales, profit, and order quantity performance
-Analyze sales trends year-over-year (2019 vs 2020)
-Identify top-performing states, categories, and customer segments
-Understand customer payment preferences and shipping patterns
+<img width="592" height="356" alt="image" src="https://github.com/user-attachments/assets/e9e5b856-522f-47be-81b5-a6496b5a63ef" />
 
 
-📌 Key Metrics & Insights
-MetricValueTotal Sales$1.57MTotal Profit$175.26KTotal Quantity Sold22K unitsAverage Delivery Days4 daysTop CategoryOffice Supplies ($0.64M)Top Sub-CategoryPhones ($0.20M)Top StateCalifornia ($0.27M)Top SegmentConsumer (48%)Top Payment ModeCOD (43%)Top Ship ModeStandard Class ($0.33M)
+---
 
-📂 Dashboard Pages
-1. Sales Overview
+## 📊 Key Metrics
 
-KPI cards: Total Sales, Quantity, Profit, Avg Delivery Days
-Sales by Customer Segment (Consumer, Corporate, Home Office)
-Sales by Payment Mode (COD, Online, Cards)
-Monthly Sales Year-over-Year (2019 vs 2020)
-Sales by Category (Office Supplies, Technology, Furniture)
-Sales by Ship Mode
-Sales by Sub-Category (Top 3: Phones, Chairs, Binders)
-Region filter (Central, East, South, West)
+| Metric            | Value    |
+| ----------------- | -------- |
+| Total Sales       | $1.57M   |
+| Total Profit      | $175.26K |
+| Total Quantity    | 22K      |
+| Avg Delivery Days | 4 days   |
 
-2. Sales Trend & State Analysis
+---
 
-Daily Sales trend over time (Jan 2019 – Jan 2021)
-Zoomed sales trend with interactive date range slider
-State-wise Sales breakdown (all US states)
+## 📌 Key Insights
 
+* 📈 Sales peaked during **Oct–Dec 2020**
+* 📍 **California** generated highest revenue ($0.27M)
+* 💳 **Cash on Delivery (43%)** is most preferred payment mode
+* 🚚 **Standard Class shipping dominates**
+* 🏢 **Office Supplies** drives highest revenue
+* 💰 **Technology & Furniture** yield better profit margins
+* 👥 **Consumer segment (48%)** contributes the most
 
-📊 Dataset
-PropertyDetailFileSuperStore_Sales_Dataset.csvRecords5,901 rowsPeriod2019 – 2020RegionUnited StatesColumnsOrder ID, Order Date, Ship Date, Ship Mode, Customer Segment, Region, State, Category, Sub-Category, Product Name, Sales, Quantity, Profit, Returns, Payment Mode
+---
 
-🛠️ Tools & Technologies
-ToolUsagePower BI DesktopDashboard development & visualizationDAXCalculated measures (YoY growth, KPIs)Power QueryData cleaning and transformationCSV DatasetSource data (5,901 records)
+## 🚀 Business Impact
 
-💡 Key Business Insights
+* Enabled identification of **high-performing regions**
+* Helped uncover **customer payment behavior**
+* Provided insights to **improve logistics & delivery efficiency**
+* Supported **data-driven decision-making**
 
-Sales grew significantly in late 2020, with the highest spikes in October–December
-California leads all states with $0.27M in sales — nearly double second-place New York ($0.16M)
-COD is the most preferred payment mode (43%), suggesting an opportunity to incentivize online payments
-Standard Class shipping dominates (0.33M) — express options are underutilized
-Office Supplies is the highest revenue category, but Technology and Furniture have higher profit margins
-Consumer segment contributes 48% of total sales — a key target for retention strategies
+---
 
+## ⚙️ Key DAX Measures
 
-🗂️ Repository Structure
+```DAX
+Total Sales = SUM(Sales)
+
+Total Profit = SUM(Profit)
+
+Total Quantity = SUM(Quantity)
+
+Avg Delivery Days = 
+AVERAGEX(
+    Dataset,
+    DATEDIFF(Dataset[Order Date], Dataset[Ship Date], DAY)
+)
+
+YoY Sales Growth = 
+DIVIDE(
+    [Sales Current Year] - [Sales Previous Year],
+    [Sales Previous Year]
+)
+```
+
+---
+
+## 📂 Dataset Information
+
+| Property | Details                      |
+| -------- | ---------------------------- |
+| File     | SuperStore_Sales_Dataset.csv |
+| Records  | 5,901                        |
+| Period   | 2019–2020                    |
+| Region   | United States                |
+
+---
+
+## 🛠️ Tools & Technologies
+
+* **Power BI Desktop** – Data visualization
+* **DAX** – KPI calculations
+* **Power Query** – Data transformation
+* **CSV Dataset** – Source data
+
+---
+
+## 🗂️ Repository Structure
+
+```
 superstore-sales-dashboard/
 │
 ├── screenshots/
@@ -63,11 +137,21 @@ superstore-sales-dashboard/
 ├── data/
 │   └── SuperStore_Sales_Dataset.csv
 │
-├── superstore_sales.pbix          # Power BI project file
+├── superstore_sales.pbix
 └── README.md
+```
 
-👩‍💻 Author
-Vaishnavi Lonkar
+---
+
+## 👩‍💻 Author
+
+**Vaishnavi Lonkar**
 BSc Information Technology | Data Analytics Enthusiast
-📧 vaishnavilonkar0506@gmail.com
-🔗 LinkedIn
+
+📧 Email: [vaishnavilonkar0506@gmail.com](mailto:vaishnavilonkar0506@gmail.com)
+🔗 LinkedIn: *(Add your link here)*
+
+---
+
+⭐ *If you found this project useful, consider giving it a star!*
+
